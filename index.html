@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experiment: Visual Word Recognition</title>
+    <link rel="stylesheet" href="assets/style.css" type="text/css" />
+    <script src="assets/text_data.js" defer></script>
+    <script src="assets/word_data.js" defer></script>
+    <script src="assets/script.js" defer></script>
+    <script src="assets/data_control_pl.js" defer></script>
+    <script src="assets/participant_ids.js" defer></script>
+  </head>
+  <body>
+    <div class="main_text_container"></div>
+    <div class="button_div hidden" id="button_div">
+      <button id="main_button" class="main_button">Start Control</button>
+    </div>
+
+    <form action="" method="get" id="start_form" class="start_form hidden">
+      <fieldset class="form_field_start">
+        <legend>Participant ID:</legend>
+        <label for="id_part">Your ID (autofilled):</label>
+        <input id="id_part" type="text" value="" disabled />
+      </fieldset>
+      <fieldset class="form_field_start">
+        <legend>How old are you?:</legend>
+        <label for="participant_age">Please use number only:</label>
+        <input id="participant_age" name="" type="text" />
+      </fieldset>
+      <fieldset class="form_field_start">
+        <legend>What is your gender?:</legend>
+        <input data-value = 'female' id="female_gen" type="radio" class="form_field_start_input_control" />
+        <label for="female_gen">female</label>
+        <input data-value = 'male' id="male_gen" type="radio" class="form_field_start_input_control" />
+        <label for="male_gen">male</label>
+        <input data-value = 'other' id="other_gen" type="radio" class="form_field_start_input_control" />
+        <label for="other_gen">other</label>
+      </fieldset>
+      <fieldset class="form_field_start">
+        <legend>
+          Have you completed any education beyond secondary school?:
+        </legend>
+        <input data-value = 'yes' class="form_field_start_input_control" id="yes_edu" type="radio" />
+        <label for="yes_edu">Yes</label>
+        <input data-value = 'no'  class="form_field_start_input_control" id="no_edu" type="radio" />
+        <label for="no_edu">No</label>
+        <input data-value = 'enrolled'  class="form_field_start_input_control" id="enrolled_edu" type="radio" />
+        <label for="enrolled_edu">I'm currently enrolled into higher education programme.</label>
+      </fieldset>
+      <fieldset class="form_field_start">
+        <legend>How often do you use English in your day to day life?:</legend>
+        <input data-value = 'v_rarely'  class="form_field_start_input_control" id="v_rarely_use_of_en" type="radio" />
+        <label for="v_rarely_use_of_en">very rarely</label>
+        <input data-value = 'rarely' class="form_field_start_input_control" id="rarely_use_of_en" type="radio" />
+        <label for="rarely_use_of_en">rarely</label>
+        <input data-value = 'sometimes' class="form_field_start_input_control" id="sometimes_use_of_en" type="radio" />
+        <label for="sometimes_use_of_en">sometimes</label>
+        <input data-value = 'often' class="form_field_start_input_control" id="often_use_of_en" type="radio" />
+        <label for="often_use_of_en">often</label>
+        <input data-value = 'v_often' class="form_field_start_input_control" id="v_often_use_of_en" type="radio" />
+        <label for="v_often_use_of_en">very often</label>
+      </fieldset>
+      <div class="submit_form">
+        <input
+          id="submit_button_start"
+          type="submit"
+          class="submit_button"
+          value="Submit"
+        />
+      </div>
+    </form>
+
+    <fieldset id="sub_text_container" class="sub_text_container hidden">
+      <legend id="term_section">Choose translation for:</legend>
+      <label
+        for="answer_1"
+        class="control_answer_contianer"
+        aria-checked="false"
+      >
+        <input type="checkbox" id="answer_1" name="answer_1" data-answer="" />
+        <p class="word_container"></p>
+      </label>
+      <label for="answer_2" class="control_answer_contianer">
+        <input type="checkbox" id="answer_2" name="answer_2" data-answer=""/>
+        <p class="word_container"></p>
+      </label>
+      <label for="answer_3" class="control_answer_contianer">
+        <input type="checkbox" id="answer_3" name="answer_3" data-answer=""/>
+        <p class="word_container"></p>
+      </label>
+      <label for="answer_4" class="control_answer_contianer">
+        <input type="checkbox" id="answer_4" name="answer_4" data-answer=""/>
+        <p class="word_container"></p>
+      </label>
+    </fieldset>
+    <form action="" method="get" id="info_form_end" class="form_format hidden">
+      <fieldset class="form_field_start">
+        <legend>
+          How would you rate your fluency in English on scale of 1 (poor) to 10
+          (fluent)?
+        </legend>
+        <div>
+          <input class="form_field_end_input_control" data-value="1" id="question_1_a1" type="radio" />
+          <label  for="question_1_a1">1</label>
+          <input class="form_field_end_input_control" data-value="2" id="question_1_a2" type="radio" />
+          <label  for="question_1_a2">2</label>
+          <input class="form_field_end_input_control" data-value="3" id="question_1_a3" type="radio" />
+          <label  for="question_1_a3">3</label>
+          <input class="form_field_end_input_control" data-value="4" id="question_1_a4" type="radio" />
+          <label  for="question_1_a4">4</label>
+          <input class="form_field_end_input_control" data-value="5" id="question_1_a5" type="radio" />
+          <label  for="question_1_a5">5</label>
+          <input class="form_field_end_input_control" data-value="6" id="question_1_a6" type="radio" />
+          <label  for="question_1_a6">6</label>
+          <input class="form_field_end_input_control" data-value="7" id="question_1_a7" type="radio" />
+          <label  for="question_1_a7">7</label>
+          <input class="form_field_end_input_control" data-value="8" id="question_1_a8" type="radio" />
+          <label  for="question_1_a8">8</label>
+          <input class="form_field_end_input_control" data-value="9" id="question_1_a9" type="radio" />
+          <label  for="question_1_a9">9</label>
+          <input class="form_field_end_input_control" data-value="10" id="question_1_a10" type="radio" />
+          <label  for="question_1_a10">10</label>
+        </div>
+      </fieldset>
+      <fieldset class="form_field_start">
+        <legend>What is your English proficiency ?</legend>
+        <div>
+          <input class="form_field_end_input_control" data-value="A1" id="question_2_a1" type="radio" />
+          <label for="question_2_a1">A1</label>
+          <input class="form_field_end_input_control" data-value="A2" id="question_2_a2" type="radio" />
+          <label for="question_2_a2">A2</label>
+          <input class="form_field_end_input_control" data-value="B1" id="question_2_a3" type="radio" />
+          <label for="question_2_a3">B1</label>
+          <input class="form_field_end_input_control" data-value="B2" id="question_2_a4" type="radio" />
+          <label for="question_2_a4">B2</label>
+          <input class="form_field_end_input_control" data-value="C1" id="question_2_a5" type="radio" />
+          <label for="question_2_a5">C1</label>
+          <input class="form_field_end_input_control" data-value="C2" id="question_2_a6" type="radio" />
+          <label for="question_2_a6">C2</label>
+          <input class="form_field_end_input_control" data-value="no_test" id="question_2_a7" type="radio" />
+          <label for="question_2_a7">I don't know.</label>
+        </div>
+      </fieldset>
+      <fieldset class="form_field_start">
+        <legend>Have you ever lived in an English speaking country?</legend>
+        <div>
+          <input class="form_field_end_input_control" data-value="yes" id="question_3_a1" type="radio" />
+          <label for="question_3_a1">Yes</label>
+          <input class="form_field_end_input_control" data-value="no" id="question_3_a2" type="radio" />
+          <label for="question_3_a2">No</label>
+        </div>
+        <div id="english_country_yes" class="english_country_yes hidden">
+          <label for="question_3_a1b">For how long?</label>
+          <select id="question_3_a1b" type="text">
+            <option value="less_than_1">Less than 1 year</option>
+            <option value="1_to_2">1 to 2 years</option>
+            <option value="2_to_3">2 to 3 years</option>
+            <option value="3_to_4">3 to 4 years</option>
+            <option value="more_than_4">more than 4 years</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <fieldset class="form_field_start">
+        <legend>Do you have any reading disabilities?</legend>
+        <div>
+          <input class="form_field_end_input_control" data-value="yes" id="question_4_a1" type="radio" />
+          <label for="question_4_a1">Yes</label>
+          <input class="form_field_end_input_control" data-value="no" id="question_4_a2" type="radio" />
+          <label for="question_4_a2">No</label>
+          <input class="form_field_end_input_control" data-value="not_disclosed" id="question_4_a3" type="radio" />
+          <label for="question_4_a3">Prefer not to say</label>
+        </div>
+      </fieldset>
+      <div class="submit_form">
+        <input
+          id="submit_button_end"
+          type="submit"
+          class="submit_button"
+          value="Submit"
+        />
+      </div>
+    </form>
+    <a id="download_csv_control" class="hidden" href="" download="" ></a>
+    <a id="download_csv" href="" download="" class="hidden">Download Your Data</a>
+  </body>
+</html>
