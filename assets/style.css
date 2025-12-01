@@ -1,5 +1,6 @@
 :root {
   --white: #ffffff;
+  --blue: #96d6e6;
   --green: #9ebd6e;
   --black: #0b090a;
   --red: #d81e5b;
@@ -32,7 +33,8 @@ body {
 }
 
 .main_text_container,
-.sub_text_container, .form_format {
+.sub_text_container,
+.form_format {
   margin: 20vh 0 50px 0;
 }
 
@@ -76,7 +78,6 @@ body {
   font-weight: 200;
 }
 
-
 .fixation_cross,
 .control_cond,
 .main_text_container p {
@@ -88,14 +89,17 @@ body {
   margin-inline-end: 0px;
 }
 
-#download_csv{
-  width: auto;
+#download_csv,
+#upload_csv {
+  width: 250px;
   color: var(--black);
   text-decoration: none;
+  margin-bottom: 20px;
 }
 
 .main_button,
-.submit_button, #download_csv {
+.submit_button,
+#download_csv {
   border: none;
   background-color: var(--green);
   padding: 10px 20px;
@@ -105,8 +109,20 @@ body {
   font-weight: 600;
 }
 
+#upload_csv {
+  border: none;
+  background-color: var(--blue);
+  padding: 10px 20px;
+  font-size: 24px;
+  border-radius: 10px;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
 .main_button:hover,
-.submit_button:hover, #download_csv:hover {
+.submit_button:hover,
+#download_csv:hover,
+#upload_csv:hover {
   background-color: var(--yellow);
   cursor: pointer;
 }
@@ -132,7 +148,8 @@ body {
   margin-right: 10px;
 }
 
-.form_field input, .form_field_start input {
+.form_field input,
+.form_field_start input {
   height: 24px;
   width: 24px;
   margin: 5px 10px 5px 20px;
@@ -168,7 +185,6 @@ select:hover {
   cursor: pointer;
 }
 
-
 .english_country_yes {
   margin: 30px 0;
 }
@@ -190,16 +206,22 @@ select:hover {
   margin: 0;
 }
 
-
-#participant_age, #id_part{
+#participant_age,
+#id_part {
   width: 200px;
   color: var(--black);
 }
 
-.form_field_start label, .form_field label{
+.form_field_start label,
+.form_field label {
   font-size: 24px;
 }
 
-.form_field_start, .form_field{
+.form_field_start,
+.form_field {
   margin-bottom: 50px;
 }
+
+/* .transition, .transition input, .transition legend{
+  transition: ease-in-out 0.3s;
+} */
