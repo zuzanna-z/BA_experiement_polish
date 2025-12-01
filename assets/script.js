@@ -1,6 +1,7 @@
 let main_txt_div = document.getElementsByClassName("main_text_container")[0];
 const main_button = document.getElementById("button_div");
 const download_button = document.getElementById("download_csv");
+const upload_button = document.getElementById("upload_csv");
 const download_button_ghost = document.getElementById("download_csv_control");
 const answer_block = document.getElementById("sub_text_container");
 const label = document.getElementById("term_section");
@@ -163,14 +164,14 @@ window.addEventListener("keydown", (e) => {
     }
 
     if (trial_count > 0) {
-      if (trial_stim_rand_li[trial_count - 1] === 'triangle') {
+      if (trial_stim_rand_li[trial_count - 1] === "triangle") {
         if (e.key === "w") {
           correct_trial = 1;
         } else {
           correct_trial = 0;
         }
       }
-      if (trial_stim_rand_li[trial_count - 1] === 'circle') {
+      if (trial_stim_rand_li[trial_count - 1] === "circle") {
         if (e.key === "n") {
           correct_trial = 1;
         } else {
@@ -241,7 +242,7 @@ window.addEventListener("keydown", (e) => {
     }
 
     // ---------------- EXIT AFTER 50 TRIALS ----------------
-    if (polish_count >= 50) {
+    if (polish_count >= 100) {
       stage_control = "polish_trial";
       main_txt_div.innerText = instructions_english;
       // console.log("polish over");
@@ -304,7 +305,7 @@ window.addEventListener("keydown", (e) => {
 
       trial_ready = true;
 
-      if (polish_count >= 50) {
+      if (polish_count >= 100) {
         stage_control = "polish_trial_intro";
         main_txt_div.innerText = instructions_english;
         // console.log("Practice over");
@@ -329,7 +330,7 @@ window.addEventListener("keydown", (e) => {
     }
 
     // ---------------- EXIT AFTER 50 TRIALS ----------------
-    if (english_count >= 50) {
+    if (english_count >= 100) {
       stage_control = "english_trial";
       main_txt_div.innerText = instructions_control;
       // console.log("english over");
@@ -389,9 +390,10 @@ window.addEventListener("keydown", (e) => {
 
       trial_ready = true;
 
-      if (english_count >= 50) {
+      if (english_count >= 100) {
         stage_control = "english_trial";
         main_txt_div.innerText = instructions_control;
+        run_control(0);
         // console.log("Practice over");
         main_button.classList.toggle("hidden");
       }
@@ -454,37 +456,108 @@ en_full_shuffeld = shuffle_array(en_full_dict);
 // CONTROL
 let term_counter_control = 0;
 
-const run_control = () => {
+const run_control = (idx) => {
   console.log("control_running");
-  if (term_counter_control < 50) {
-    console.log(term_counter_control);
-    item = control_set_pl[term_counter_control];
-    label.innerText = `Choose translation for: ${item.word}`;
-    answers_shuffeled = shuffle_array([
-      item.translation,
-      item.wrong_1,
-      item.wrong_2,
-      item.wrong_3,
-    ]);
 
-    // console.log(answer_1.childNodes)
-    let check_transformed_array = Array.from(
-      document.getElementsByClassName("control_answer_contianer")
-    );
-    check_transformed_array[0].getElementsByTagName("p")[0].innerText =
-      answers_shuffeled[0];
-    answer_1.dataset.answer = answers_shuffeled[0];
-    check_transformed_array[1].getElementsByTagName("p")[0].innerText =
-      answers_shuffeled[1];
-    answer_2.dataset.answer = answers_shuffeled[1];
+  console.log(idx);
+  item = control_set_pl[idx];
+  label.innerText = `Choose translation for: ${item.word}`;
+  answers_shuffeled = shuffle_array([
+    item.translation,
+    item.wrong_1,
+    item.wrong_2,
+    item.wrong_3,
+  ]);
 
-    check_transformed_array[2].getElementsByTagName("p")[0].innerText =
-      answers_shuffeled[2];
-    answer_3.dataset.answer = answers_shuffeled[2];
-    check_transformed_array[3].getElementsByTagName("p")[0].innerText =
-      answers_shuffeled[3];
-    answer_4.dataset.answer = answers_shuffeled[3];
-  } else {
+  // console.log(answer_1.childNodes)
+  let check_transformed_array = Array.from(
+    document.getElementsByClassName("control_answer_contianer")
+  );
+  check_transformed_array[0].getElementsByTagName("p")[0].innerText =
+    answers_shuffeled[0];
+  answer_1.dataset.answer = answers_shuffeled[0];
+  check_transformed_array[1].getElementsByTagName("p")[0].innerText =
+    answers_shuffeled[1];
+  answer_2.dataset.answer = answers_shuffeled[1];
+
+  check_transformed_array[2].getElementsByTagName("p")[0].innerText =
+    answers_shuffeled[2];
+  answer_3.dataset.answer = answers_shuffeled[2];
+  check_transformed_array[3].getElementsByTagName("p")[0].innerText =
+    answers_shuffeled[3];
+  answer_4.dataset.answer = answers_shuffeled[3];
+};
+
+answer_block.addEventListener("click", (e) => {
+  // compare to test set
+  if (control_form.length === 0) {
+    let new_idx = 0;
+    const user_answer = e.target.id;
+    console.log(user_answer);
+    let is_correct;
+    if (control_set_pl[new_idx].translation === e.target.dataset.answer) {
+      is_correct = 1;
+    } else {
+      is_correct = 0;
+    }
+    let new_control_entry = {
+      id: participantIDnow,
+      word: control_set_pl[new_idx].word,
+      translation: control_set_pl[new_idx].translation,
+      answer: e.target.dataset.answer,
+      correct: is_correct,
+    };
+    control_form.push(new_control_entry);
+    // console.log(control_form);
+    // setTimeout(() => {
+    //   e.target.checked = false;
+    //   // term_counter_control++;
+    //   run_control(new_idx);
+    // }, 300);
+  }
+  if (control_form.length < 49) {
+    let new_idx = control_form.length;
+    const user_answer = e.target.id;
+    console.log(user_answer);
+    let is_correct;
+    if (control_set_pl[new_idx].translation === e.target.dataset.answer) {
+      is_correct = 1;
+    } else {
+      is_correct = 0;
+    }
+    let new_control_entry = {
+      id: participantIDnow,
+      word: control_set_pl[new_idx].word,
+      translation: control_set_pl[new_idx].translation,
+      answer: e.target.dataset.answer,
+      correct: is_correct,
+    };
+    control_form.push(new_control_entry);
+    // console.log(control_form);
+    setTimeout(() => {
+      e.target.checked = false;
+      // term_counter_control++;
+      run_control(new_idx);
+    }, 300);
+  }
+  if (control_form.length === 49) {
+    let new_idx = control_form.length;
+    const user_answer = e.target.id;
+    console.log(user_answer);
+    let is_correct;
+    if (control_set_pl[new_idx].translation === e.target.dataset.answer) {
+      is_correct = 1;
+    } else {
+      is_correct = 0;
+    }
+    let new_control_entry = {
+      id: participantIDnow,
+      word: control_set_pl[new_idx].word,
+      translation: control_set_pl[new_idx].translation,
+      answer: e.target.dataset.answer,
+      correct: is_correct,
+    };
+    control_form.push(new_control_entry);
     stage_control = "end_form";
     answer_block.classList.toggle("hidden");
     main_button.getElementsByTagName("button")[0].innerText = "Start";
@@ -492,33 +565,6 @@ const run_control = () => {
     main_txt_div.innerText = end_form_instructions;
     main_txt_div.classList.toggle("hidden");
   }
-};
-
-answer_block.addEventListener("click", (e) => {
-  const user_answer = e.target.id;
-  console.log(user_answer);
-  let is_correct;
-  if (
-    control_set_pl[term_counter_control].translation === e.target.dataset.answer
-  ) {
-    is_correct = 1;
-  } else {
-    is_correct = 0;
-  }
-  let new_control_entry = {
-    id: participantIDnow,
-    word: control_set_pl[term_counter_control].word,
-    translation: control_set_pl[term_counter_control].translation,
-    answer: e.target.dataset.answer,
-    correct: is_correct,
-  };
-  control_form.push(new_control_entry);
-  // console.log(control_form);
-  setTimeout(() => {
-    e.target.checked = false;
-    term_counter_control++;
-    run_control();
-  }, 300);
 });
 
 const objToCSV = (obj) => {
@@ -568,6 +614,25 @@ document
         use_of_en: all_checked_start[2].dataset.value,
       },
     ];
+
+    let not_filled;
+    if (
+      (id_form[0].fluency_self == "") |
+      (id_form.proficiency == "") |
+      (id_form.en_speaking == "") |
+      (id_form.reading_disability == "")
+    ) {
+      not_filled = true;
+    }
+
+    while (not_filled) {
+      document
+  .getElementById("submit_button_start").disabled = true;
+    }
+    if (!not_filled) {
+      document
+  .getElementById("submit_button_start").disabled = false;
+    }
   });
 
 main_button.addEventListener("click", (e) => {
@@ -580,6 +645,7 @@ main_button.addEventListener("click", (e) => {
     stage_control = "control_condition";
     run_control();
   }
+
   if (stage_control === "end_form") {
     main_txt_div.innerText = "";
     main_txt_div.classList.toggle("hidden");
@@ -588,9 +654,9 @@ main_button.addEventListener("click", (e) => {
   }
 });
 
-download_button.addEventListener("click", (e) => {
-  download_button_ghost.click();
-});
+// download_button.addEventListener("click", (e) => {
+//   download_button_ghost.click();
+// });
 
 end_form_submit_button.addEventListener("click", (e) => {
   e.preventDefault();
@@ -599,6 +665,7 @@ end_form_submit_button.addEventListener("click", (e) => {
   main_txt_div.classList.toggle("hidden");
   end_form.classList.toggle("hidden");
   download_button.classList.toggle("hidden");
+  upload_button.classList.toggle("hidden");
 
   window.scrollTo({
     top: 0,
@@ -633,30 +700,67 @@ end_form_submit_button.addEventListener("click", (e) => {
   let full_df = [];
 
   experiment_form.forEach((observation) => {
-    new_full_entry = {
-      id: participantIDnow,
-      gender: id_form[0].gender,
-      age: id_form[0].age,
-      education: id_form[0].education,
-      use_of_en: id_form[0].use_of_en,
-      fluency_self: info_form[0].fluency_self,
-      proficiency: info_form[0].proficiency,
-      en_speaking_country: info_form[0].en_speaking,
-      en_time_spent: info_form[0].time_spent,
-      reading_disability: info_form[0].reading_disability,
-      stimuli: observation.stimuli,
-      type: observation.type,
-      reaction_time: observation.reaction_time,
-      answer: observation.answer,
-      correct: observation.correct,
-      language: observation.language,
-    };
-    full_df.push(new_full_entry);
+    if ((observation.language === "en") & (observation.type === "word")) {
+      let match_control_idx = control_set_pl
+        .map((elm) => elm["word"])
+        .indexOf(observation.stimuli);
+      console.log(`stim: ${observation.stimuli}`);
+      console.log(`idx: ${match_control_idx}`);
+      // console.log(`word: ${}`);
+      new_full_entry = {
+        id: participantIDnow,
+        gender: id_form[0].gender,
+        age: id_form[0].age,
+        education: id_form[0].education,
+        use_of_en: id_form[0].use_of_en,
+        fluency_self: info_form[0].fluency_self,
+        proficiency: info_form[0].proficiency,
+        en_speaking_country: info_form[0].en_speaking,
+        en_time_spent: info_form[0].time_spent,
+        reading_disability: info_form[0].reading_disability,
+        stimuli: observation.stimuli,
+        type: observation.type,
+        reaction_time: observation.reaction_time,
+        answer: observation.answer,
+        correct: observation.correct,
+        control_word: control_form[match_control_idx].word,
+        control_answer: control_form[match_control_idx].answer,
+        control_translation: control_form[match_control_idx].translation,
+        control_correct: control_form[match_control_idx].correct,
+        language: observation.language,
+      };
+      full_df.push(new_full_entry);
+    } else {
+      new_full_entry = {
+        id: participantIDnow,
+        gender: id_form[0].gender,
+        age: id_form[0].age,
+        education: id_form[0].education,
+        use_of_en: id_form[0].use_of_en,
+        fluency_self: info_form[0].fluency_self,
+        proficiency: info_form[0].proficiency,
+        en_speaking_country: info_form[0].en_speaking,
+        en_time_spent: info_form[0].time_spent,
+        reading_disability: info_form[0].reading_disability,
+        stimuli: observation.stimuli,
+        type: observation.type,
+        reaction_time: observation.reaction_time,
+        answer: observation.answer,
+        correct: observation.correct,
+        control_word: "no_control",
+        control_answer: "no_control",
+        control_translation: "no_control",
+        control_correct: "no_control",
+        language: observation.language,
+      };
+      full_df.push(new_full_entry);
+    }
   });
+
 
   let full_csv = objToCSV(full_df);
   let control_csv = objToCSV(control_form);
-  // console.log(full_csv);
+  console.log(full_csv);
   // console.log(control_csv);
 
   let encURI = encodeURI(full_csv);
@@ -665,11 +769,11 @@ end_form_submit_button.addEventListener("click", (e) => {
   download_button.setAttribute("href", encURI);
   download_button.setAttribute("download", `${participantIDnow}_data.csv`);
 
-  download_button_ghost.setAttribute("href", encURI_control);
-  download_button_ghost.setAttribute(
-    "download",
-    `${participantIDnow}_data_control.csv`
-  );
+  // download_button_ghost.setAttribute("href", encURI_control);
+  // download_button_ghost.setAttribute(
+  //   "download",
+  //   `${participantIDnow}_data_control.csv`
+  // );
 });
 
 const all_fields = document.getElementsByClassName("form_field_start");

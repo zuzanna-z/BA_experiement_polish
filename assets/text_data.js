@@ -13,7 +13,7 @@ const instructions_english = 'You have now finished the first test stage of this
 
 const instructions_control = 'This is the last stage of the experiment! This stage tests your knowledge of the English words you were presented with in the previous stage. Each word will be displayed with 4 possible translations. To answer simply click on the option of your choosing. Remember that it is NOT possible to change your answer once you check one of the boxes.'
 
-const outro = 'You have completed the experiment. I will now ask you to download and upload your data to OneDrive using the link below. The button displayed underneath will download two .csv files to your local download folder (your_id_data.csv and your_id_data_control.csv). Your browser might prompt you to allow for multiple file downloads, please agree. Thank you for your  participation!'
+const outro = 'You have completed the experiment. I will now ask you to download and upload your data to a form linked below. The button displayed underneath will download a .csv file to your local download folder (the file name should be formated as [your_id]_data.csv). To upload the data simply open the file you just downloaded, select all and copy (Windows: press ctrl + a and then ctrl + c | Macbook: command + a and then command + c) then open the form link and paste it in the response window. Thank you for your  participation!'
 
 const end_form_instructions = 'I will now ask you to fill out a short form. The information you share will be completely anonymized and used only for the purposes of this study.'
 
