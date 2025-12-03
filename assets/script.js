@@ -497,9 +497,9 @@ const run_control = (idx) => {
 let answer_ready = true;
 let first_instance = true;
 answer_block.addEventListener("click", (e) => {
-  // console.log("clicked");
-  // console.log(e.target.tagName);
-  // console.log(answer_ready);
+  console.log("clicked");
+  console.log(e.target.tagName);
+  console.log(answer_ready);
   let user_answer;
   if (e.target.tagName === "INPUT") {
     // console.log(e.target.dataset.answer)
@@ -550,7 +550,7 @@ answer_block.addEventListener("click", (e) => {
     }
   }
   if (answer_count >= 50) {
-    // control_form.push(new_control_entry);
+    control_form.push(new_control_entry);
     stage_control = "end_form";
     answer_block.classList.toggle("hidden");
     main_button.getElementsByTagName("button")[0].innerText = "Start";
@@ -822,3 +822,4 @@ document.getElementById("participant_age").addEventListener(
   },
   { capture: true }
 );
+
