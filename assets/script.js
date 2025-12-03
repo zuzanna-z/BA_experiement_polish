@@ -95,11 +95,13 @@ window.addEventListener("keydown", (e) => {
   if (e.code === "Space" && stage_control === "consent_1") {
     main_txt_div.innerText = info_agree_2;
     stage_control = "consent_2";
+
+
     return;
   }
 
   if (e.code === "Space" && stage_control === "consent_2") {
-    main_txt_div.innerText = "Please fill out the form and press submit. Make sure to check answer for every question.";
+    main_txt_div.innerText = "Please fill out the form and press submit. Make sure you check answer for every question.";
     document.getElementById("start_form").classList.toggle("hidden");
     stage_control = "consent_3";
     return;
@@ -395,6 +397,8 @@ window.addEventListener("keydown", (e) => {
         stage_control = "english_trial";
         main_txt_div.innerText = instructions_control;
         run_control(0);
+        answer_count++;
+
         // console.log("Practice over");
         main_button.classList.toggle("hidden");
       }
@@ -508,7 +512,7 @@ answer_block.addEventListener("click", (e) => {
     e.target.checked = false;
     return;
   }
-  if (first_instance & answer_count === 1) {
+  if (first_instance) {
     answer_count--
     first_instance = false;
   }
@@ -615,12 +619,10 @@ document
     }
 
     while (not_filled) {
-      document
-  .getElementById("submit_button_start").disabled = true;
+      document.getElementById("submit_button_start").disabled = true;
     }
     if (!not_filled) {
-      document
-  .getElementById("submit_button_start").disabled = false;
+      document.getElementById("submit_button_start").disabled = false;
     }
   });
 
@@ -680,10 +682,9 @@ end_form_submit_button.addEventListener("click", (e) => {
       fluency_self: all_checked_start[0].dataset.value,
       proficiency: all_checked_start[1].dataset.value,
       en_grade: all_checked_start[2].dataset.value,
-      en_level: all_checked_start[3].dataset.value,
-      en_speaking: all_checked_start[4].dataset.value,
+      en_speaking: all_checked_start[3].dataset.value,
       en_time_spent: time_spent,
-      reading_disability: all_checked_start[5].dataset.value,
+      reading_disability: all_checked_start[4].dataset.value,
     },
   ];
   // console.log(info_form);
@@ -695,9 +696,9 @@ end_form_submit_button.addEventListener("click", (e) => {
       let match_control_idx = control_set_pl
         .map((elm) => elm["word"])
         .indexOf(observation.stimuli);
-      // console.log(`stim: ${observation.stimuli}`);
-      // console.log(`idx: ${match_control_idx}`);
-      // console.log(`word: ${}`);
+      console.log(`stim: ${observation.stimuli}`);
+      console.log(`idx: ${match_control_idx}`);
+      console.log(`word at idx: ${control_form[match_control_idx].word}`);
       new_full_entry = {
         id: participantIDnow,
         gender: id_form[0].gender,
@@ -706,6 +707,7 @@ end_form_submit_button.addEventListener("click", (e) => {
         use_of_en: id_form[0].use_of_en,
         fluency_self: info_form[0].fluency_self,
         proficiency: info_form[0].proficiency,
+        en_grade: info_form[0].en_grade,
         en_speaking_country: info_form[0].en_speaking,
         en_time_spent: info_form[0].time_spent,
         reading_disability: info_form[0].reading_disability,
@@ -730,6 +732,7 @@ end_form_submit_button.addEventListener("click", (e) => {
         use_of_en: id_form[0].use_of_en,
         fluency_self: info_form[0].fluency_self,
         proficiency: info_form[0].proficiency,
+        en_grade: info_form[0].en_grade,
         en_speaking_country: info_form[0].en_speaking,
         en_time_spent: info_form[0].time_spent,
         reading_disability: info_form[0].reading_disability,
@@ -747,11 +750,11 @@ end_form_submit_button.addEventListener("click", (e) => {
       full_df.push(new_full_entry);
     }
   });
-
+  console.log(new_full_entry);
 
   let full_csv = objToCSV(full_df);
   let control_csv = objToCSV(control_form);
-  // console.log(full_csv);
+  console.log(full_csv);
   // console.log(control_csv);
 
   let encURI = encodeURI(full_csv);
@@ -819,4 +822,3 @@ document.getElementById("participant_age").addEventListener(
   },
   { capture: true }
 );
-
