@@ -9,6 +9,7 @@ const answer_1 = document.getElementById("answer_1");
 const answer_2 = document.getElementById("answer_2");
 const answer_3 = document.getElementById("answer_3");
 const answer_4 = document.getElementById("answer_4");
+const answer_input_arr = [answer_1, answer_2, answer_3, answer_4]
 const end_form_submit_button = document.getElementById("submit_button_end");
 const check_array = document.getElementsByClassName("control_answer_contianer");
 const end_form = document.getElementById("info_form_end");
@@ -497,7 +498,7 @@ const run_control = (idx) => {
 
 let answer_ready = true;
 let first_instance = true;
-answer_block.addEventListener("click", (e) => {
+answer_input_arr.addEventListener("click", (e) => {
   console.log("clicked");
   console.log(e.target.tagName);
   console.log(answer_ready);
@@ -822,6 +823,7 @@ document.getElementById("participant_age").addEventListener(
   },
   { capture: true }
 );
+
 
 
 
