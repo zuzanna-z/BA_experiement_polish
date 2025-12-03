@@ -467,6 +467,7 @@ const run_control = (idx) => {
 
   // console.log(idx);
   item = control_set_pl[idx];
+  console.log(item)
   label.innerText = `Choose translation for: ${item.word}`;
   answers_shuffeled = shuffle_array([
     item.translation,
@@ -822,5 +823,6 @@ document.getElementById("participant_age").addEventListener(
   },
   { capture: true }
 );
+
 
 
