@@ -1,352 +1,402 @@
 const control_set_pl = [
   {
+    "Unnamed: 0": 0,
     "word": "dictionary",
-    "translation": "s\u0142ownik",
-    "wrong_1": "podr\u0119cznik",
-    "wrong_2": "ksia\u017cka",
-    "wrong_3": "atlas"
+    "phonemes": "d\u026ak\u0283\u0259n\u025b\u0279i ",
+    "word_lenght": 10,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.1
   },
   {
+    "Unnamed: 0": 1,
     "word": "work",
-    "translation": "praca",
-    "wrong_1": "profesja",
-    "wrong_2": "zadanie",
-    "wrong_3": "misja"
+    "phonemes": "w\u025c\u02d0k ",
+    "word_lenght": 4,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.4
   },
   {
+    "Unnamed: 0": 2,
     "word": "exercise",
-    "translation": "\u0107wiczenie",
-    "wrong_1": "edukacja",
-    "wrong_2": "lekcja",
-    "wrong_3": "manewr"
+    "phonemes": "\u025bks\u025asa\u026az ",
+    "word_lenght": 8,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.0
   },
   {
+    "Unnamed: 0": 3,
     "word": "happy",
-    "translation": "szcz\u0119\u015bliwy/a",
-    "wrong_1": "odpowiedzialny/a",
-    "wrong_2": "z\u0142y/a",
-    "wrong_3": "smieszny/a"
+    "phonemes": "h\u00e6pi ",
+    "word_lenght": 5,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.4
   },
   {
+    "Unnamed: 0": 4,
     "word": "wireless",
-    "translation": "bezprzewodowy",
-    "wrong_1": "przewodowy",
-    "wrong_2": "eletryczny",
-    "wrong_3": "zdalny"
+    "phonemes": "wa\u026a\u025al\u0259s ",
+    "word_lenght": 8,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.375
   },
   {
+    "Unnamed: 0": 5,
     "word": "star",
-    "translation": "gwiazda",
-    "wrong_1": "sze\u015bcian",
-    "wrong_2": "chmura",
-    "wrong_3": "tr\u00f3jk\u0105t"
+    "phonemes": "st\u0251\u02d0\u0279 ",
+    "word_lenght": 4,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.3333333333
   },
   {
-    "word": "good",
-    "translation": "dobry/a",
-    "wrong_1": "zadowolony/a",
-    "wrong_2": "szcz\u0119\u015bliwy/a",
-    "wrong_3": "radosny/a"
+    "Unnamed: 0": 6,
+    "word": "goods",
+    "phonemes": "\u0261\u028adz ",
+    "word_lenght": 5,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.0
   },
   {
+    "Unnamed: 0": 7,
     "word": "family",
-    "translation": "rodzina",
-    "wrong_1": "znajomy/a",
-    "wrong_2": "grono",
-    "wrong_3": "zwi\u0105zek"
+    "phonemes": "f\u00e6m\u026ali ",
+    "word_lenght": 6,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.4285714286
   },
   {
+    "Unnamed: 0": 8,
     "word": "treatment",
-    "translation": "leczenie",
-    "wrong_1": "projekt",
-    "wrong_2": "plan",
-    "wrong_3": "badanie"
+    "phonemes": "t\u0279i\u02d0tm\u0259nt ",
+    "word_lenght": 9,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.5
   },
   {
+    "Unnamed: 0": 9,
     "word": "meeting",
-    "translation": "spotkanie",
-    "wrong_1": "impreza",
-    "wrong_2": "uroczysto\u015b\u0107",
-    "wrong_3": "okazja"
+    "phonemes": "mi\u02d0\u027e\u026a\u014b ",
+    "word_lenght": 7,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.1428571429
   },
   {
+    "Unnamed: 0": 10,
     "word": "law",
-    "translation": "prawo",
-    "wrong_1": "kodeks",
-    "wrong_2": "przyzwolenie",
-    "wrong_3": "zakaz"
+    "phonemes": "l\u0254\u02d0 ",
+    "word_lenght": 3,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.25
   },
   {
+    "Unnamed: 0": 11,
     "word": "delivery",
-    "translation": "dostawa",
-    "wrong_1": "odbi\u00f3r",
-    "wrong_2": "poczta",
-    "wrong_3": "zam\u00f3wienie"
+    "phonemes": "d\u1d7bl\u026av\u025a\u0279i ",
+    "word_lenght": 8,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.3333333333
   },
   {
+    "Unnamed: 0": 12,
     "word": "able",
-    "translation": "zdolny/a",
-    "wrong_1": "do\u015bwiadczony/a",
-    "wrong_2": "zdrowy/a",
-    "wrong_3": "aktywny/a"
+    "phonemes": "e\u026ab\u0259l ",
+    "word_lenght": 4,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.3333333333
   },
   {
+    "Unnamed: 0": 13,
     "word": "yellow",
-    "translation": "\u017c\u00f3\u0142ty",
-    "wrong_1": "czerwony",
-    "wrong_2": "pomara\u0144czowy",
-    "wrong_3": "z\u0142oty"
+    "phonemes": "j\u025blo\u028a ",
+    "word_lenght": 6,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.1666666667
   },
   {
+    "Unnamed: 0": 14,
     "word": "amount",
-    "translation": "kwota",
-    "wrong_1": "rozmiar",
-    "wrong_2": "opis",
-    "wrong_3": "waga"
+    "phonemes": "\u0250ma\u028ant ",
+    "word_lenght": 6,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.4285714286
   },
   {
+    "Unnamed: 0": 15,
     "word": "time",
-    "translation": "czas",
-    "wrong_1": "kalendarz",
-    "wrong_2": "zegarek",
-    "wrong_3": "dzie\u0144"
+    "phonemes": "ta\u026am ",
+    "word_lenght": 4,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.4
   },
   {
+    "Unnamed: 0": 16,
     "word": "fire",
-    "translation": "ogie\u0144",
-    "wrong_1": "olej",
-    "wrong_2": "gaz",
-    "wrong_3": "dym"
+    "phonemes": "fa\u026a\u025a ",
+    "word_lenght": 4,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.2
   },
   {
+    "Unnamed: 0": 17,
     "word": "everyone",
-    "translation": "wszyscy",
-    "wrong_1": "kto\u015b",
-    "wrong_2": "nikt",
-    "wrong_3": "ktokolwiek"
+    "phonemes": "\u025bv\u0279\u026aw\u028cn ",
+    "word_lenght": 8,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.25
   },
   {
+    "Unnamed: 0": 18,
     "word": "land",
-    "translation": "ziemia",
-    "wrong_1": "planeta",
-    "wrong_2": "kraj",
-    "wrong_3": "wyspa"
+    "phonemes": "l\u00e6nd ",
+    "word_lenght": 4,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.6
   },
   {
+    "Unnamed: 0": 19,
     "word": "low",
-    "translation": "nisko",
-    "wrong_1": "wysoko",
-    "wrong_2": "blisko",
-    "wrong_3": "daleko"
+    "phonemes": "lo\u028a ",
+    "word_lenght": 3,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.5
   },
   {
+    "Unnamed: 0": 20,
     "word": "sale",
-    "translation": "wyprzeda\u017c",
-    "wrong_1": "sklep",
-    "wrong_2": "transakcja",
-    "wrong_3": "wymiana"
+    "phonemes": "se\u026al ",
+    "word_lenght": 4,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.4
   },
   {
+    "Unnamed: 0": 21,
     "word": "bush",
-    "translation": "krzak",
-    "wrong_1": "drzewo",
-    "wrong_2": "kwiat",
-    "wrong_3": "trawnik"
+    "phonemes": "b\u028a\u0283 ",
+    "word_lenght": 4,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.25
   },
   {
+    "Unnamed: 0": 22,
     "word": "period",
-    "translation": "okres",
-    "wrong_1": "miesi\u0105c",
-    "wrong_2": "przecinek",
-    "wrong_3": "trend"
+    "phonemes": "pi\u0259\u0279\u026a\u0259d ",
+    "word_lenght": 6,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.25
   },
   {
+    "Unnamed: 0": 23,
     "word": "pocket",
-    "translation": "kiesze\u0144",
-    "wrong_1": "guzik",
-    "wrong_2": "torebka",
-    "wrong_3": "portfel"
+    "phonemes": "p\u0251\u02d0k\u026at ",
+    "word_lenght": 6,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.4285714286
   },
   {
+    "Unnamed: 0": 24,
     "word": "meaning",
-    "translation": "znaczenie",
-    "wrong_1": "wyb\u00f3r",
-    "wrong_2": "pomys\u0142",
-    "wrong_3": "my\u015b\u0142"
+    "phonemes": "mi\u02d0n\u026a\u014b ",
+    "word_lenght": 7,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.2857142857
   },
   {
+    "Unnamed: 0": 25,
     "word": "hand",
-    "translation": "r\u0119ka",
-    "wrong_1": "przedramie",
-    "wrong_2": "\u0142okie\u0107",
-    "wrong_3": "palce"
+    "phonemes": "h\u00e6nd ",
+    "word_lenght": 4,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.6
   },
   {
+    "Unnamed: 0": 26,
     "word": "tree",
-    "translation": "drzewo",
-    "wrong_1": "choinka",
-    "wrong_2": "las",
-    "wrong_3": "krzak"
+    "phonemes": "t\u0279i\u02d0 ",
+    "word_lenght": 4,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.2
   },
   {
+    "Unnamed: 0": 27,
     "word": "movement",
-    "translation": "ruch",
-    "wrong_1": "film",
-    "wrong_2": "przejazd",
-    "wrong_3": "korek"
+    "phonemes": "mu\u02d0vm\u0259nt ",
+    "word_lenght": 8,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.4444444444
   },
   {
+    "Unnamed: 0": 28,
     "word": "western",
-    "translation": "zachodni",
-    "wrong_1": "wschodni",
-    "wrong_2": "p\u00f3\u0142nocny",
-    "wrong_3": "po\u0142udniowy"
+    "phonemes": "w\u025bst\u025an ",
+    "word_lenght": 7,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.4285714286
   },
   {
+    "Unnamed: 0": 29,
     "word": "player",
-    "translation": "gracz",
-    "wrong_1": "widz",
-    "wrong_2": "trener",
-    "wrong_3": "s\u0119dzia"
+    "phonemes": "ple\u026a\u025a ",
+    "word_lenght": 6,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.3333333333
   },
   {
+    "Unnamed: 0": 30,
     "word": "engine",
-    "translation": "silnik",
-    "wrong_1": "samoch\u00f3d",
-    "wrong_2": "poci\u0105g",
-    "wrong_3": "turbina"
+    "phonemes": "\u025bnd\u0292\u026an ",
+    "word_lenght": 6,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.2857142857
   },
   {
+    "Unnamed: 0": 31,
     "word": "money",
-    "translation": "pieni\u0105dze",
-    "wrong_1": "bogactwo",
-    "wrong_2": "monety",
-    "wrong_3": "banknoty"
+    "phonemes": "m\u028cni ",
+    "word_lenght": 5,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.4
   },
   {
+    "Unnamed: 0": 32,
     "word": "road",
-    "translation": "droga",
-    "wrong_1": "dop\u0142yw",
-    "wrong_2": "\u015bcie\u017cka",
-    "wrong_3": "autostrada"
+    "phonemes": "\u0279o\u028ad ",
+    "word_lenght": 4,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.4
   },
   {
+    "Unnamed: 0": 33,
     "word": "today",
-    "translation": "dzisaj",
-    "wrong_1": "jutro",
-    "wrong_2": "nigdy",
-    "wrong_3": "wieczorem"
+    "phonemes": "t\u0259de\u026a ",
+    "word_lenght": 5,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.3333333333
   },
   {
+    "Unnamed: 0": 34,
     "word": "ice",
-    "translation": "l\u00f3d",
-    "wrong_1": "woda",
-    "wrong_2": "zimno",
-    "wrong_3": "sopel"
+    "phonemes": "a\u026as ",
+    "word_lenght": 3,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.0
   },
   {
+    "Unnamed: 0": 35,
     "word": "memory",
-    "translation": "wpomnienie",
-    "wrong_1": "mi\u0142o\u015b\u0107",
-    "wrong_2": "przywi\u0105zanie",
-    "wrong_3": "sentyment"
+    "phonemes": "m\u025bm\u025a\u0279i ",
+    "word_lenght": 6,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.2857142857
   },
   {
+    "Unnamed: 0": 36,
     "word": "error",
-    "translation": "b\u0142\u0105d",
-    "wrong_1": "dost\u0119p",
-    "wrong_2": "wada",
-    "wrong_3": "fa\u0142sz"
+    "phonemes": "\u025b\u0279\u025a ",
+    "word_lenght": 5,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.0
   },
   {
+    "Unnamed: 0": 37,
     "word": "stone",
-    "translation": "kamie\u0144",
-    "wrong_1": "b\u0142oto",
-    "wrong_2": "minera\u0142",
-    "wrong_3": "ziemia"
+    "phonemes": "sto\u028an ",
+    "word_lenght": 5,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.6666666667
   },
   {
+    "Unnamed: 0": 38,
     "word": "unknown",
-    "translation": "nieznane",
-    "wrong_1": "s\u0142awne",
-    "wrong_2": "nieznacz\u0105ce",
-    "wrong_3": "znane"
+    "phonemes": "\u028cnno\u028an ",
+    "word_lenght": 7,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.4285714286
   },
   {
+    "Unnamed: 0": 39,
     "word": "complete",
-    "translation": "ca\u0142e",
-    "wrong_1": "pe\u0142ne",
-    "wrong_2": "niepe\u0142ne",
-    "wrong_3": "nieca\u0142e"
+    "phonemes": "k\u0259mpli\u02d0t ",
+    "word_lenght": 8,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.4444444444
   },
   {
+    "Unnamed: 0": 40,
     "word": "exist",
-    "translation": "istnie\u0107",
-    "wrong_1": "my\u015ble\u0107",
-    "wrong_2": "wiedzie\u0107",
-    "wrong_3": "\u015bni\u0107"
+    "phonemes": "\u025b\u0261z\u026ast ",
+    "word_lenght": 5,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.2857142857
   },
   {
+    "Unnamed: 0": 41,
     "word": "belief",
-    "translation": "wiara",
-    "wrong_1": "cel",
-    "wrong_2": "\u017cycie",
-    "wrong_3": "kultura"
+    "phonemes": "b\u1d7bli\u02d0f ",
+    "word_lenght": 6,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.5714285714
   },
   {
+    "Unnamed: 0": 42,
     "word": "band",
-    "translation": "zesp\u00f3\u0142",
-    "wrong_1": "zgromadzenie",
-    "wrong_2": "zbi\u00f3r",
-    "wrong_3": "spotkanie"
+    "phonemes": "b\u00e6nd ",
+    "word_lenght": 4,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.6
   },
   {
+    "Unnamed: 0": 43,
     "word": "hot",
-    "translation": "gor\u0105cy",
-    "wrong_1": "ciep\u0142y",
-    "wrong_2": "letni",
-    "wrong_3": "parny"
+    "phonemes": "h\u0251\u02d0t ",
+    "word_lenght": 3,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.4
   },
   {
+    "Unnamed: 0": 44,
     "word": "stock",
-    "translation": "zas\u00f3b",
-    "wrong_1": "kara",
-    "wrong_2": "sprzeda\u017c",
-    "wrong_3": "towar"
+    "phonemes": "st\u0251\u02d0k ",
+    "word_lenght": 5,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.5
   },
   {
+    "Unnamed: 0": 45,
     "word": "poor",
-    "translation": "biedny/a",
-    "wrong_1": "chory/a",
-    "wrong_2": "nieszcz\u0119\u015bliwy/a",
-    "wrong_3": "samotny/a"
+    "phonemes": "p\u028a\u0279 ",
+    "word_lenght": 4,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.25
   },
   {
+    "Unnamed: 0": 46,
     "word": "responsible",
-    "translation": "odpowiedzialny/a",
-    "wrong_1": "wa\u017cny/a",
-    "wrong_2": "elegancki/a",
-    "wrong_3": "m\u0105dry/a"
+    "phonemes": "\u0279\u1d7bsp\u0251\u02d0ns\u1d7bb\u0259l ",
+    "word_lenght": 11,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.4615384615
   },
   {
+    "Unnamed: 0": 47,
     "word": "members",
-    "translation": "cz\u0142onkowie",
-    "wrong_1": "krewni",
-    "wrong_2": "rodzina",
-    "wrong_3": "znajomi"
+    "phonemes": "m\u025bmb\u025az ",
+    "word_lenght": 7,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.4285714286
   },
   {
+    "Unnamed: 0": 48,
     "word": "news",
-    "translation": "wiadomo\u015bci",
-    "wrong_1": "gazeta",
-    "wrong_2": "dziennikarz/ka",
-    "wrong_3": "telewizja"
+    "phonemes": "nu\u02d0z ",
+    "word_lenght": 4,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.2
   },
   {
+    "Unnamed: 0": 49,
     "word": "channel",
-    "translation": "kana\u0142",
-    "wrong_1": "przep\u0142yw",
-    "wrong_2": "program",
-    "wrong_3": "rzeka"
+    "phonemes": "t\u0283\u00e6n\u0259l ",
+    "word_lenght": 7,
+    "languge": "en",
+    "Levenshtein_distance_normalized": 0.1428571429
   }
 ]

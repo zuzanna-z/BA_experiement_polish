@@ -70,6 +70,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
   stage_control = "consent_1";
 });
 
+let answer_count = 0;
 let trial_count = 0;
 let trial_stim_rand_li = [];
 let polish_count = 0;
@@ -98,7 +99,7 @@ window.addEventListener("keydown", (e) => {
   }
 
   if (e.code === "Space" && stage_control === "consent_2") {
-    main_txt_div.innerText = "Please fill out the form and press submit";
+    main_txt_div.innerText = "Please fill out the form and press submit. Make sure to check answer for every question.";
     document.getElementById("start_form").classList.toggle("hidden");
     stage_control = "consent_3";
     return;
@@ -457,9 +458,10 @@ en_full_shuffeld = shuffle_array(en_full_dict);
 let term_counter_control = 0;
 
 const run_control = (idx) => {
-  console.log("control_running");
+  // console.log("control_running", idx);
+  // console.log(control_set_pl[idx]);
 
-  console.log(idx);
+  // console.log(idx);
   item = control_set_pl[idx];
   label.innerText = `Choose translation for: ${item.word}`;
   answers_shuffeled = shuffle_array([
@@ -488,76 +490,63 @@ const run_control = (idx) => {
   answer_4.dataset.answer = answers_shuffeled[3];
 };
 
+let answer_ready = true;
+let first_instance = true;
 answer_block.addEventListener("click", (e) => {
-  // compare to test set
-  if (control_form.length === 0) {
-    let new_idx = 0;
-    const user_answer = e.target.id;
-    console.log(user_answer);
-    let is_correct;
-    if (control_set_pl[new_idx].translation === e.target.dataset.answer) {
-      is_correct = 1;
-    } else {
-      is_correct = 0;
-    }
-    let new_control_entry = {
-      id: participantIDnow,
-      word: control_set_pl[new_idx].word,
-      translation: control_set_pl[new_idx].translation,
-      answer: e.target.dataset.answer,
-      correct: is_correct,
-    };
-    control_form.push(new_control_entry);
-    // console.log(control_form);
-    // setTimeout(() => {
-    //   e.target.checked = false;
-    //   // term_counter_control++;
-    //   run_control(new_idx);
-    // }, 300);
+  // console.log("clicked");
+  // console.log(e.target.tagName);
+  // console.log(answer_ready);
+  let user_answer;
+  if (e.target.tagName === "INPUT") {
+    // console.log(e.target.dataset.answer)
+    user_answer = e.target.dataset.answer;
+  } else {
+    user_answer = e.target.innerText;
   }
-  if (control_form.length < 49) {
-    let new_idx = control_form.length;
-    const user_answer = e.target.id;
-    console.log(user_answer);
-    let is_correct;
-    if (control_set_pl[new_idx].translation === e.target.dataset.answer) {
-      is_correct = 1;
-    } else {
-      is_correct = 0;
-    }
-    let new_control_entry = {
-      id: participantIDnow,
-      word: control_set_pl[new_idx].word,
-      translation: control_set_pl[new_idx].translation,
-      answer: e.target.dataset.answer,
-      correct: is_correct,
-    };
-    control_form.push(new_control_entry);
-    // console.log(control_form);
-    setTimeout(() => {
-      e.target.checked = false;
-      // term_counter_control++;
-      run_control(new_idx);
-    }, 300);
+  if (!answer_ready) {
+    console.log("false alarm");
+    e.target.checked = false;
+    return;
   }
-  if (control_form.length === 49) {
-    let new_idx = control_form.length;
-    const user_answer = e.target.id;
-    console.log(user_answer);
+  if (first_instance) {
+    answer_count--
+    first_instance = false;
+  }
+  if (0 < answer_count < 50) {
+    answer_ready = false;
+    e.target.checked = true;
+
+    console.log("idx", answer_count);
+    console.log("answer", user_answer);
+    console.log("word for idx", control_set_pl[answer_count].word);
+
     let is_correct;
-    if (control_set_pl[new_idx].translation === e.target.dataset.answer) {
+    if (control_set_pl[answer_count].translation === user_answer) {
       is_correct = 1;
     } else {
       is_correct = 0;
     }
     let new_control_entry = {
       id: participantIDnow,
-      word: control_set_pl[new_idx].word,
-      translation: control_set_pl[new_idx].translation,
-      answer: e.target.dataset.answer,
+      word: control_set_pl[answer_count].word,
+      translation: control_set_pl[answer_count].translation,
+      answer: user_answer,
       correct: is_correct,
     };
     control_form.push(new_control_entry);
+    console.log("pushed elm:", control_form);
+    answer_count++;
+
+    if (answer_count < 50) {
+      setTimeout(() => {
+        e.target.checked = false;
+        answer_ready = true;
+        run_control(answer_count);
+      }, 300);
+    }
+  }
+  if (answer_count >= 50) {
+    // control_form.push(new_control_entry);
     stage_control = "end_form";
     answer_block.classList.toggle("hidden");
     main_button.getElementsByTagName("button")[0].innerText = "Start";
@@ -690,9 +679,11 @@ end_form_submit_button.addEventListener("click", (e) => {
       id: participantIDnow,
       fluency_self: all_checked_start[0].dataset.value,
       proficiency: all_checked_start[1].dataset.value,
-      en_speaking: all_checked_start[2].dataset.value,
+      en_grade: all_checked_start[2].dataset.value,
+      en_level: all_checked_start[3].dataset.value,
+      en_speaking: all_checked_start[4].dataset.value,
       en_time_spent: time_spent,
-      reading_disability: all_checked_start[3].dataset.value,
+      reading_disability: all_checked_start[5].dataset.value,
     },
   ];
   // console.log(info_form);
