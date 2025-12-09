@@ -155,7 +155,6 @@ const en_words = [
 'channel'
 ]
 const en_pseudowords = [
-'word',
 'roud',
 'soad',
 'coad',
@@ -166,7 +165,7 @@ const en_pseudowords = [
 'mas',
 'san',
 'mun',
-'mons',
+'mon',
 'prouple',
 'treaple',
 'troomle',
@@ -177,7 +176,7 @@ const en_pseudowords = [
 'giy',
 'gub',
 'gug',
-'mim',
+'tim',
 'til',
 'tir',
 'tum',
@@ -188,15 +187,15 @@ const en_pseudowords = [
 'cardtul',
 'canctul',
 'retutio',
-'retutio',
-'retutio',
-'retutio',
-'retutio',
+'rention',
+'etuto',
+'tutio',
+'retuntion',
 'anignment',
-'anisement',
-'anissment',
+'anisemen',
+'angissment',
 'anirement',
-'anintment',
+'anintmet',
 'potige',
 'potide',
 'potike',
@@ -206,5 +205,5 @@ const en_pseudowords = [
 'atusser',
 'atuager',
 'aturler',
-
 ]
+
